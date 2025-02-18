@@ -1,5 +1,6 @@
 
 {{-- resources/views/coaches/show.blade.php --}}
+{{-- falta hacer el css --}}
 @extends('layouts.app')
 
 @section('content')
