@@ -73,14 +73,15 @@
 
             {{-- Instructor (opcional) --}}
             <div class="mb-3">
-                <label for="instructor" class="form-label">Instructor</label>
-                <input type="text" name="instructor" id="instructor"
-                    class="form-control @error('instructor') is-invalid @enderror" value="{{ old('instructor') }}"
-                    placeholder="Ej: Juan Pérez">
-                @error('instructor')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+                <label for="coach_id" class="form-label">Entrenador</label>
+                <select name="coach_id" id="coach_id" class="form-control">
+                    <option value="">Selecciona un entrenador</option>
+                    @foreach ($coaches as $coach)
+                        <option value="{{ $coach->id }}">{{ $coach->name }}</option>
+                    @endforeach
+                </select>
             </div>
+
 
             {{-- Botón de enviar --}}
             <button type="submit" class="btn btn-primary">Guardar Clase</button>

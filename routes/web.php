@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\CoachController;
+
 use App\Http\Controllers\ReservationController;
 
 /*
@@ -25,5 +27,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Rutas protegidas
 Route::middleware('auth')->group(function () {
     Route::resource('classes', ClassController::class);
+    Route::resource('coaches', CoachController::class)->middleware('admin');
     Route::resource('reservations', ReservationController::class);
 });

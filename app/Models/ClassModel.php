@@ -23,4 +23,9 @@ class ClassModel extends Model
     {
         return $this->hasMany(Reservation::class, 'class_id');
     }
+    public function coach()
+    {
+        return $this->belongsTo(Coach::class, 'coach_id');
+    }
+
 }

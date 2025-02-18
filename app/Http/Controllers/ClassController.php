@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ClassModel;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Coach;
 
 class ClassController extends Controller
 {
@@ -28,7 +29,8 @@ class ClassController extends Controller
      */
     public function create()
     {
-        return view('classes.create');
+        $coaches = Coach::all();
+        return view('classes.create', compact('coaches'));
     }
 
     /**
@@ -41,6 +43,7 @@ class ClassController extends Controller
             'capacity' => 'required|integer|min:1',
             'date_time' => 'required|date',
             'duration' => 'required|integer|min:1',
+
         ]);
 
         //como ya habia creado date y time por separado ahorqa tengo que dividir el campo eb dos 

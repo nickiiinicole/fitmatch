@@ -10,15 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('coaches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->integer('capacity');
-            $table->date('date');
-            $table->time('time');
-            $table->integer('duration'); // minutos, por ejemplo
-             $table->foreign('coach_id')->references('id')->on('coaches')->onDelete('set null');
+            $table->string('email')->unique();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('coaches');
     }
 };
