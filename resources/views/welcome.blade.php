@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <style>
-        /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
+        /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
         *,
         ::after,
         ::before {
@@ -822,7 +822,7 @@
             .lg\:p-8 {
                 padding: 2rem
             }
-        }
+        } */
     </style>
 </head>
 
@@ -834,8 +834,12 @@
                 @auth
                     <a href="{{ url('/home') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    <a href="{{ route('classes.index') }}" class="btn btn-primary">Gestionar Clases</a>
-                    <a href="{{ route('coaches.index') }}" class="btn btn-primary">Gestión de Entrenadores</a>
+                    @if (Auth::user()->role === 'admin')
+                        <a href="{{ route('classes.index') }}" class="btn btn-primary">Gestionar Clases</a>
+
+                        <a href="{{ route('coaches.index') }}" class="btn btn-primary">Gestión de Entrenadores</a>
+                    @endif
+
                     <a href="{{ route('reservations.index') }}" class="btn btn-success">Mis Reservas</a>
                 @else
                     <a href="{{ route('login') }}"
@@ -850,7 +854,7 @@
             </div>
         @endif
 
-        <div class="max-w-7xl mx-auto p-6 lg:p-8">
+        {{-- <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
                 <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg"
                     class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
@@ -1010,7 +1014,7 @@
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </body>
 

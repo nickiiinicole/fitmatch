@@ -16,10 +16,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || !Auth::user()->is_admin) {
-            abort(403, 'No tienes permiso para acceder aquí');
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return $next($request);
         }
 
-        return $next($request);
+        return redirect('/')->with('error', 'No tienes permisos para acceder a esta sección.');
     }
+    
 }
