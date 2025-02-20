@@ -57,6 +57,7 @@ class CoachController extends Controller
     public function edit(string $id)
     {
         $coach = Coach::findOrFail($id);
+
         return view('coaches.edit', compact('coach'));
     }
 

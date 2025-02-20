@@ -30,6 +30,7 @@ class ClassController extends Controller
     public function create()
     {
         $coaches = Coach::all();
+
         return view('classes.create', compact('coaches'));
     }
 
@@ -78,7 +79,9 @@ class ClassController extends Controller
     public function edit(string $id)
     {
         $class = ClassModel::findOrFail($id);
-        return view('classes.edit', compact('class'));
+        $coaches = Coach::all(); // Asegúrate de importar el modelo Coach
+
+        return view('classes.edit', compact('class', 'coaches'));
     }
 
     /**
