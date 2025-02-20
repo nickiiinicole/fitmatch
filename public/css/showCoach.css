@@ -1,0 +1,93 @@
+/* ======= Estilos Generales ======= */
+body {
+    background-color: #0a001f;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* ======= Contenedor Principal ======= */
+.container {
+    background: rgba(84, 56, 167, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(173, 129, 255, 0.5);
+}
+
+/* ======= Título ======= */
+h1 {
+    font-size: 30px;
+    text-align: center;
+    background-image: linear-gradient(90deg, #4d40ff, #c5a3e9, #146ce7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+/* ======= Card del Entrenador ======= */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+/* ======= Header del Card (Nombre del Entrenador) ======= */
+.card-header {
+    background: linear-gradient(90deg, #6a00ff, #a86cff);
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+/* ======= Body del Card (Información del Entrenador) ======= */
+.card-body {
+    padding: 20px;
+    font-size: 18px;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+}
+
+/* ======= Botón Volver ======= */
+.btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* ======= Estilos de Botones ======= */
+.btn-secondary {
+    background-color: #6a00ff;
+    border: none;
+    box-shadow: 0px 0px 15px #9c52ff;
+}
+
+.btn-secondary:hover {
+    background-color: #7a1aff;
+    box-shadow: 0px 0px 20px 5px #d5aaff;
+}
+
+/* ======= Estilos para Mensajes de Éxito ======= */
+.alert-success {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* ======= Enlaces y Botones ======= */
+a {
+    color: #b700ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #a86cff;
+}

@@ -27,9 +27,8 @@
                 @if (Auth::user()->role === 'admin')
                     <li><a href="{{ route('classes.index') }}" class="nav-link">Gestionar Clases</a></li>
                     <li><a href="{{ route('coaches.index') }}" class="nav-link">Gestión de Entrenadores</a></li>
-                    {{-- <li><a href="{{ route('reservations.index') }}" class="nav-link">Reservas</a></li> --}}
                 @endif
-                <li><a href="{{ url('/home') }}" class="nav-link">Mi cuenta</a></li>
+                <li><a href="{{ route('reservations.index') }}" class="nav-link">Reservas</a></li>
                 <li>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf

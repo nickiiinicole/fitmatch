@@ -21,7 +21,7 @@ class ReservationController extends Controller
     public function index()
     {
         // Muestra solo las reservas del usuario logueado (o todas si es admin)
-        if (Auth::user()->is_admin) {
+        if (Auth::user()->role === 'admin') {
             $reservations = Reservation::with('classModel', 'user')->paginate(10);
         } else {
             $reservations = Reservation::where('user_id', Auth::id())
@@ -35,10 +35,16 @@ class ReservationController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        // Listamos las clases disponibles para que el usuario elija
+        // Recuperamos todas las clases disponibles
         $classes = ClassModel::all();
+
+        // Verificamos si el usuario es un admin y pasamos los usuarios
+        if (Auth::user()->role === 'admin') {
+            $users = \App\Models\User::all();
+            return view('reservations.create', compact('classes', 'users'));
+        }
         return view('reservations.create', compact('classes'));
     }
 
@@ -54,18 +60,28 @@ class ReservationController extends Controller
         // Verifica si la clase tiene cupo
         $class = ClassModel::findOrFail($request->class_id);
 
-        // Contamos las reservas que ya existen para esa clase
+        // Verificar si la clase tiene cupo
         $reservasCount = Reservation::where('class_id', $class->id)->count();
-
         if ($reservasCount >= $class->capacity) {
             return back()->withErrors('La clase ya está llena.');
         }
 
-        // Creamos la reserva
+        // Si es admin, debe haber enviado un user_id válido; si no, se asigna el usuario autenticado
+        if (Auth::user()->role === 'admin') {
+            $request->validate([
+                'user_id' => 'required|exists:users,id',
+            ]);
+            $userId = $request->user_id;
+        } else {
+            $userId = Auth::id();
+        }
+
+        // Crear la reserva
         Reservation::create([
-            'user_id' => Auth::id(),
+            'user_id' => $userId,
             'class_id' => $class->id,
         ]);
+
 
         return redirect()->route('reservations.index')
             ->with('success', 'Reserva creada correctamente');
@@ -115,7 +131,11 @@ class ReservationController extends Controller
     public function destroy(string $id)
     {
         $reservation = Reservation::findOrFail($id);
+        // Verifica si la reserva pertenece al usuario logueado o si es admin
         $reservation->delete();
+        if ($reservation->user_id !== Auth::id() && !Auth::user()->role === 'admin') {
+            return back()->withErrors('No puedes eliminar esta reserva.');
+        }
         return redirect()->route('reservations.index')
             ->with('success', 'Reserva eliminada correctamente');
     }

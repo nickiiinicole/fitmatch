@@ -1,0 +1,94 @@
+/* ======= Estilos Generales ======= */
+body {
+    background-color: #0a001f;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* ======= Contenedor Principal ======= */
+.container {
+    background: rgba(84, 56, 167, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(173, 129, 255, 0.6);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* ======= Título Principal ======= */
+h1 {
+    font-size: 40px;
+    text-align: center;
+    background-image: linear-gradient(90deg, #4d40ff, #c5a3e9, #146ce7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+/* ======= Descripción de la Clase ======= */
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* ======= Fecha y Hora, Instructor y Capacidad ======= */
+p span {
+    font-weight: bold;
+    color: #b700ff;
+}
+
+/* ======= Botón de Reservar Clase ======= */
+.btn {
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-block;
+    text-align: center;
+}
+
+/* ======= Estilos de Botones ======= */
+.btn-primary {
+    background-color: #b700ff;
+    border: none;
+    box-shadow: 0px 0px 20px #9c52ff;
+}
+
+.btn-primary:hover {
+    background-color: #a86cff;
+    box-shadow: 0px 0px 25px 5px #d5aaff;
+}
+
+/* ======= Clase Llena - Mensaje de Alerta ======= */
+.text-danger {
+    color: #ff004c;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ======= Enlaces ======= */
+a {
+    color: #b700ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ======= Enlace Volver al Listado de Clases ======= */
+a[href*="classes.index"] {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #007bff;
+}
+
+a[href*="classes.index"]:hover {
+    color: #4d40ff;
+    text-decoration: underline;
+}
