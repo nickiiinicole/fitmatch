@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 // Rutas protegidas
 //Con esto, cualquier ruta que pongas dentro de ese group estará protegida por tu middleware auth (requiere inicio de sesión) y por admin (requiere ser administrador).
 Route::middleware(['auth', 'admin'])->group(function () {
