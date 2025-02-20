@@ -55,6 +55,7 @@ form {
 .form-control:focus {
     background-color: #1b103a;
     border-color: #9c52ff;
+    color: white;
     box-shadow: 0 0 5px #6a00ff;
 }
 
