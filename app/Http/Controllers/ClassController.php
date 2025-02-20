@@ -79,7 +79,7 @@ class ClassController extends Controller
     public function edit(string $id)
     {
         $class = ClassModel::findOrFail($id);
-        $coaches = Coach::all(); // Asegúrate de importar el modelo Coach
+        $coaches = Coach::all(); 
 
         return view('classes.edit', compact('class', 'coaches'));
     }

@@ -83,3 +83,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const words = ["PSYCHOLOGICAL FLEXIBILITY", "BELONGING", "RESILIENCE"];
+    let index = 0;
+    const textElement = document.getElementById("triangle-text");
+
+    function changeWord() {
+        textElement.style.opacity = "0"; // Desvanece el texto
+        setTimeout(() => {
+            textElement.textContent = words[index];
+            textElement.style.opacity = "1"; // Aparece con nueva palabra
+            index = (index + 1) % words.length;
+        }, 500);
+    }
+
+    setInterval(changeWord, 3000); // Cambia cada 3 segundos
+});

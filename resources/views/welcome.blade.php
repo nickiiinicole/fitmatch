@@ -83,7 +83,9 @@
                     </div>
                 </div>
             </div>
-            <div class="titulo"><p>NUESTRAS CLASES DESTACADAS</p></div>
+            <div class="titulo">
+                <p>NUESTRAS CLASES DESTACADAS</p>
+            </div>
             <div class="card">
                 <div class="face face1">
                     <i class="fas fa-dumbbell"></i>
@@ -151,6 +153,7 @@
     </section>
 
 
+
     <!-- Sección Opiniones (Reviews) -->
     <section id="reviews" class="reviews-section">
         <h2 class="reviews-title">Opiniones de nuestros clientes</h2>
@@ -161,7 +164,7 @@
                 <div class="review-card">“Me encantaron las clases de yoga, 100% recomendado.”<br> <strong>- Ana
                         R.</strong></div>
                 <div class="review-card">“Ambiente increíble y buenos equipos.”<br> <strong>- Miguel T.</strong></div>
-                <div class="review-card">“Las instalaciones son modernas y bien equipadas.”<br> <strong>- Laura
+                <div class="review-card">“Como si estuviera en el gimnasio, sin necesidad de ir.”<br> <strong>- Laura
                         G.</strong></div>
             </div>
         </div>
