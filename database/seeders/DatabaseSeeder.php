@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin123'),
             'is_admin' => true,
         ]);
-        // Usuario admin
+        // Usuario admin2
         User::create([
             'name' => 'admin',
             'email' => 'adminfitmatch@fitmatch.com',
