@@ -19,6 +19,13 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin123'),
             'is_admin' => true,
         ]);
+        // Usuario admin
+        User::create([
+            'name' => 'admin',
+            'email' => 'adminfitmatch@fitmatch.com',
+            'password' => bcrypt('fitmatch123'),
+            'is_admin' => true,
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
